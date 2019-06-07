@@ -14,11 +14,15 @@ filename_list.sort()
 print(filename_list)
 print(str(type(filename_list)) + '\n') # A list!
 
+# Print the header
+print('Filename'.ljust(50) + '|' + 'FileSize'.rjust(10))
+
 # Loop each file and print it out
 for filename in filename_list:
     # If the file is a python source file
     if filename.endswith('.py'):
         # Use path.join to apply proper forward slashes
         myString = os.path.join(currentDir, filename)
+        mySize = os.path.getsize(myString)
         # Display it to the user
-        print(myString)
+        print(myString.ljust(50) + '|' + str(mySize).rjust(10))
