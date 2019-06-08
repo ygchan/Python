@@ -16,7 +16,8 @@ information = input('What do you want to write? ')
 
 currentDir = os.getcwd()
 # Create a file with the name defined by user
-newFile = open(os.path.join(currentDir, filename), 'w')
+# If it is the same file, you can keep writing to it :)
+newFile = open(os.path.join(currentDir, filename), 'a')
 newFile.write(information)
 newFile.close()
 
