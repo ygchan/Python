@@ -8,7 +8,8 @@ cats = [{'name' : 'Zophie',
          'desc' : 'fluffy'}]
 
 print('Pretty Format')
-pprint.pprint(cats)
+print(pprint.pformat(cats))
 
-print('\nNormal Format')
-print(cats)
+fileObj = open('myCats.py', 'w')
+fileObj.write('cats = ' + pprint.pformat(cats) + '\n')
+fileObj.close()
