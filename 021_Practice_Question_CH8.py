@@ -58,3 +58,5 @@
 # cats = ['Bobo']
 # shelfFile['cats'] = cats << Storing the cats list into shelfFile
 # shelfFile.close()
+
+# I think the citibike project can use this too. 
