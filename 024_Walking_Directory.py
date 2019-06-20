@@ -2,7 +2,9 @@
 import os
 
 # This has 3 things it returns to loop
-for folderName, subfolders, filenames in os.walk('C:\\delicious'):
+# Improved to loop current folder where the program lives in.
+for folderName, subfolders, filenames in os.walk(os.getcwd()):
+    
     # Outter print statment
     print('The current folder is ' + folderName)
 
