@@ -31,3 +31,6 @@ shutil.copy('/Users/Study/Python/hello.txt', '/Users/Study/Python/bye.txt')
 # Assume the file is in the current work directory.
 
 shutil.copy('hello.txt', 'bye2.txt')
+
+# Backup the whole bacon folder :)
+shutil.copytree('./bacon', './bacon_backup')
