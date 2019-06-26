@@ -17,14 +17,28 @@
 import shutil, os, re
 
 # Create a regex that matches files with the American date format.
+# Passing re.VERBOSE allow white space and comment
 datePatter = re.compile(r"""^(.*?) # all text before the date
     ((0|1)?\d)-                    # one or two digit for the month
     ((0|1|2|3)?\d)-                # one or two digit for the day
     ((19|20)\d\d)                  # four digits for the year
     (.*?)$                         # all text after the date
-    """, re.VERBOSE)
+    """, re.VERBOSE)               
 
 # To do: Loop over the files in the working directory
+for amerFilename in os.listdir('.'):
+    mo = datePattern.search(amerFilename)
+
+    # Skip files without a date.
+    if mo == None:
+        continue
+
+    # Get the different parts of the filename.
+    beforePart = mo.group(1)
+    monthPath  = mo.group(2)
+    dayPart    = mo.group(4)
+    yearPart   = mo.group(6)
+    afterPart  = mo.group(8)
 
 # To do: skip files without a date
 
