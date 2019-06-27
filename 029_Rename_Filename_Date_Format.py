@@ -18,7 +18,7 @@ import shutil, os, re
 
 # Create a regex that matches files with the American date format.
 # Passing re.VERBOSE allow white space and comment
-datePatter = re.compile(r"""^(.*?) # all text before the date
+datePattern = re.compile(r"""^(.*?) # all text before the date
     ((0|1)?\d)-                    # one or two digit for the month
     ((0|1|2|3)?\d)-                # one or two digit for the day
     ((19|20)\d\d)                  # four digits for the year
@@ -35,17 +35,21 @@ for amerFilename in os.listdir('.'):
 
     # Get the different parts of the filename.
     beforePart = mo.group(1)
-    monthPath  = mo.group(2)
+    monthPart  = mo.group(2)
     dayPart    = mo.group(4)
     yearPart   = mo.group(6)
     afterPart  = mo.group(8)
 
-# To do: skip files without a date
+    # To do: From the European-style filename
+    euroFilename = beforePart + dayPart + '-' + monthPart + '-' + yearPart + afterPart
 
-# To do: Get the different parts of a filename
+    # To do: Get the full, absolute file paths
+    absWorkingDir = os.path.abspath('.')
+    amerFilename = os.path.join(absWorkingDir, amerFilename)
+    euroFilename = os.path.join(absWorkingDir, euroFilename)
+    
+    # To do: Rename the files
+    # print('Renaming "%s" to "%s"...' % (amerFilename, euroFilename))
+    print('Renameing {} to {}...'.format(amerFilename, euroFilename))
 
-# To do: From the European-style filename
-
-# To do: Get the full, absolute file paths
-
-# To do: Rename the files
+    # shutil.move(amerFilename, euroFilename) # uncomment after testing
