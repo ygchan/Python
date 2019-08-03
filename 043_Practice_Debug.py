@@ -12,6 +12,11 @@ while guess not in ('heads', 'tails'):
     guess = input()
 
 toss = random.randint(0, 1) # 0 is tails, 1 is heads
+
+# Python Ternary Operator
+# https://stackoverflow.com/a/2802748
+toss = 'tails' if toss == 0 else 'heads'
+
 if toss == guess:
     print('You got it!')
 else:
