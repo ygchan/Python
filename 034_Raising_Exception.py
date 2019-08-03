@@ -51,3 +51,20 @@ for sym, w, h in (('*', 4, 4), ('O', 20, 5), ('x', 1, 3), ('ZZ', 3, 3)):
         boxPrint(sym, w, h)
     except Exception as err:
         print('An exception happened: ' + str(err))
+
+# Practicing try and except method
+def namePrint(name):
+    '''Take a string and print it to the screen'''
+    if not (name.isalpha()):
+        raise Exception('Name must contain only letters')
+    print('Hello', name.title())
+
+while True:
+    buffer = input('What is your name (q to exit): ')
+    if buffer == 'q':
+        break
+    try:
+        namePrint(buffer)
+    except Exception as err:
+        print('An exception happened: ' + str(err))
+        
