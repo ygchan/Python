@@ -21,3 +21,7 @@ def switchLights(stoplight):
 switchLights(market_2nd)
 
 # AssertionError: << Something bad happened.
+
+# Assertions are for development, not for final product
+# See Appendix B for details about how to launch your probably not insane
+# program with the -o option.
