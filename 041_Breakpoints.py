@@ -23,3 +23,8 @@ print('Heads came up ' + str(heads) + ' times.')
 # and also you can control the display of different level of statement
 # without having to worry about removing them after your code is ready.
 # And you can also easily write the exception logging to a text file.
+
+# debugger lets you step through program one line at a time, or have it
+# runs your program at normal speed and have debugger pause execution at
+# breakpoint set. Using a debugger, you can see the state of any variable's
+# value at any point during the program's lifetime.
