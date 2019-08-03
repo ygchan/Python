@@ -45,3 +45,39 @@ logging.debug('End of a program.')
 ## 2019-08-02 21:26:43,670 - DEBUG- End of factorial(5)
 ##120
 ## 2019-08-02 21:26:43,770 - DEBUG- End of a program.
+
+# Author's note: don't debug with print()
+# because when you are done with the program, you will ended up spending a lot
+# of time to remove these print() calls. And just a matter of time you will
+# remove some print() that you actually wanted.
+
+# Debug is good because you can freely turn them on and off
+# by adding a single logging.distable(logging.CRITICAL)
+
+# The logging module makes it easy to switch between showing and hiding log
+# Log messages are intended for programmer
+# Print messages are intended for user
+
+# There are 5 levels to categorize your log messages by importance.
+
+# DEBUG    - lowest level (small details).
+# logging.debug()
+
+# INFO     - general events
+# logging.info()
+
+# WARNING  - potential problem
+# logging.warning()
+
+# ERROR    - error that caused a program to fail to do something
+# logging.error()
+
+# CRITICAL - fatal error or something that is about to cause the program to stop
+# logging.critical()
+
+# By passing logging.DEBUG to the basicConfig() function's level keyword
+# it will show all messages from all logging level (DEBUG is the lowest).
+# But after you program some more, you might only want to see error/citicial messages.
+
+# Disable logging
+# logging.disable(logging.CRITICAL)
