@@ -21,3 +21,18 @@ conn.close()
 for result in all_results:
     print(result)
 # -----------------------------------------------------
+
+# Lesson 3: Execute(), create table SQL
+import psycopg2
+conn = psycopg2.connect("dbname=dq user=dq")
+
+cur = conn.cursor()
+cur.execute("""
+    create table employees(
+        id integer primary key,
+        email text ,
+        name text ,
+        address text 
+    );    
+""")
+# -----------------------------------------------------
