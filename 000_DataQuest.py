@@ -91,3 +91,15 @@ conn1.commit()
 cur2.execute(query_string)
 view2_after = cur2.fetchall()
 # -----------------------------------------------------
+
+# Lesson 7: update string format
+import psycopg2
+conn = psycopg2.connect("dbname=dq user=dq")
+
+cur = conn.cursor()
+cur.execute("insert into users values(%s, %s, %s, %s);",
+            (2, "George@Gmail.com", "George", "123, Fake Street"))
+
+conn.commit()
+conn.close()
+# -----------------------------------------------------
