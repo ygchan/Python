@@ -60,7 +60,8 @@ query_string = """
     );
 """
 
-cur = conn.cursor(query_string)
+cur = conn.cursor()
+cur.execute(query_string)
 conn.commit()
 conn.close()
 # -----------------------------------------------------
