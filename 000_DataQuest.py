@@ -46,3 +46,21 @@ cur.execute("""
    select * from users;
 """)
 # -----------------------------------------------------
+
+# Lesson 5: query_string and commit
+
+import psycopg2
+conn = psycopg2.connect("dbname=dq user=dq")
+query_string = """
+    CREATE TABLE users(
+        id integer PRIMARY KEY, 
+        email text,
+        name text,
+        address text
+    );
+"""
+
+cur = conn.cursor(query_string)
+conn.commit()
+conn.close()
+# -----------------------------------------------------
