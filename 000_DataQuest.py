@@ -97,6 +97,8 @@ import psycopg2
 conn = psycopg2.connect("dbname=dq user=dq")
 
 cur = conn.cursor()
+# Try to use a list for single item, tuple for multiple
+# or (1,) for a single tuple.
 cur.execute("insert into users values(%s, %s, %s, %s);",
             (2, "George@Gmail.com", "George", "123, Fake Street"))
 
