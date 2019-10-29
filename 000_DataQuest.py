@@ -36,3 +36,13 @@ cur.execute("""
     );    
 """)
 # -----------------------------------------------------
+
+# Lesson 4: Begin, Commit
+import psycopg2
+conn = psycopg2.connect("dbname=dq user=dq")
+
+cur = conn.cursor()
+cur.execute("""
+   select * from users;
+""")
+# -----------------------------------------------------
