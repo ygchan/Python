@@ -65,3 +65,29 @@ cur.execute(query_string)
 conn.commit()
 conn.close()
 # -----------------------------------------------------
+
+# Lesson 6: Different state
+import psycopg2
+conn1 = psycopg2.connect("dbname=dq user=dq")
+cur1 = conn1.cursor()
+cur1.execute("delete from users")
+conn1.commit()
+
+cur1.execute("INSERT INTO users VALUES (%s, %s, %s, %s);", (1, 'alice@dataquest.io', 'Alice', '99 Fake Street'))
+conn2 = psycopg2.connect("dbname=dq user=dq")
+cur2 = conn2.cursor()
+# add your code here
+
+query_string = "select * from users;"
+
+cur1.execute(query_string)
+view1_before = cur1.fetchall()
+
+cur2.execute(query_string)
+view2_before = cur2.fetchall()
+
+conn1.commit()
+
+cur2.execute(query_string)
+view2_after = cur2.fetchall()
+# -----------------------------------------------------
