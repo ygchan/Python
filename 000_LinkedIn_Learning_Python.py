@@ -332,10 +332,103 @@ def main():
   today = date.today()
   print ("Today's date is", today)      
 
+# Chapter 04: Reading File
+# What is the different between w, r, and a mode?
+# How to test what mode your file is reading as?
+# How to read and loop a file line by line?
+# How to close a file?
 
+def main():
+	f = open("textfile.txt", "w+"):
+	for i in range(10):
+		print("This line is" + str(i) + "\r\n")
+	f.close()
 
+	g = open("textfile.txt", "r"):
+	if g.mode == "r":
+		file_lines = g.readlines()
+		for line in file_lines:
+			print(line)
 
+	g.close()
 
+if __name__ == "__main__":
+	main()
+
+# What is the os module? What is the path module?
+# How to get the modification time of a file
+# How to get the creation time of a file
+
+# How to check if file exists, a file or directory?
+
+# os gives us ability to work with operate system
+import os
+from os import path
+import datetime
+from datetime import date, time, timedelta
+import time
+
+def main():
+  # Print the name of the OS
+  print(os.name)
+
+  # Check for item existence and type
+  # Relative path
+  print("Item exists: " + str(path.exists("textfile.txt")))
+  print("Item is a file: " + str(path.isfile("textfile.txt")))
+  print("Item is a directory: " + str(path.isdir("textfile.txt")))
+  
+  # Work with file paths
+  print("Item path: " + str(path.realpath("textfile.txt")))
+  print("Item path and name: " + str(path.split(path.realpath("textfile.txt"))))
+  
+  # Get the modification time
+  # convert the modification time into a real time
+  t = time.ctime(path.getmtime("textfile.txt"))
+  # print(t)
+
+  # Another way to get modification time
+  # print(datetime.datetime.fromtimestamp(path.getmtime("textfile.txt")))
+  
+  # Calculate how long ago the item was modified
+  # time delta!
+  td = datetime.datetime.now() - datetime.datetime.fromtimestamp(
+    path.getmtime("textfile.txt")
+  )
+
+  print("It has been " + str(td) + " since the file was modified")
+  print("or, " + str(td.total_seconds()) + " seconds ")
+  
+if __name__ == "__main__":
+  main()
+
+# Chapter 5: Working with Web Data:
+# Getting data from internet - such as JSON, XML, HTML
+
+# What is urllib library? What is a request?
+# How to go to a website
+# How to check if your connection is sucessful?
+# How to get all the html data?
+
+# provide code you need to make http request
+import urllib.request
+
+def main():
+  webUrl = urllib.request.urlopen("http://www.google.com")
+
+  # 200 if ok, 404 errors
+  # You are able to connect without errors
+  print("result code: " + str(webUrl.getcode()))
+
+  # read the html
+  data = webUrl.read()
+  print(data)
+
+if __name__ == "__main__":
+  main()
+
+# How to parse JSON, XML?
+# JSON - use the earthquake as example.
 
 
 
