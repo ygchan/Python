@@ -194,3 +194,183 @@ length = 5
 breadth = 2
 print('Perimeter is', 2 * (length + breadth))
 
+# Chapter 3: Working with Dates and Time
+# how does import statement works?
+# how to get today's date? individual components?
+# how to get weekday? put it in a list and use it.
+
+from datetime import date
+from datetime import time
+from datetime import datetime
+
+def main():
+  ## DATE OBJECTS
+  # Get today's date from the simple today() method from the date class
+  today = date.today()
+  print("Today's date is", today)
+
+  # print out the date's individual components
+  print("Date components: ", today.day, today.month, today.year)
+  
+  # retrieve today's weekday (0=Monday, 6=Sunday)
+  days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  print("Today's weekday number is:", today.weekday())
+
+  print("Which is: ", days[today.weekday()])
+  
+  ## DATETIME OBJECTS
+  # Get today's date from the datetime class
+  today = datetime.now()
+  print("The current date and time is ", today)  
+
+  # Get the current time
+  # the time function will return only the time part of now
+  t = datetime.time(datetime.now())
+  print(2)
+
+# How to format date/time?
+# %y/%Y - Year, %a/%A - weekday, %b/%B - month, %d - day of month
+print(now.strftime("%a, %b %y"))
+
+# %I/%H - 12/24 Hour, %M - minute, %S - second, %p - locale's AM/PM
+print(now.strftime("Current time: %I:%M:%S %p"))
+print(now.strftime("24 hour time: %H:%M"))
+
+# How to create a time detla?
+today = date.today()
+print("One year from now: " + str(today + timedelta(days=365)))
+
+april_fool_day = date(today.year, 4, 1)
+# Next april fools day
+april_fool_day = april_fool_day.replace(year=today.year + 1)
+
+# What is calendar module?
+# calendar is a library that allows you to print a string calendar
+# or html calendar, it also lets you show what are the days in a month
+# weekdays in a month.
+
+# create a plain text calendar
+c = calendar.TextCalendar(calendar.SUNDAY)
+# st = c.formatmonth(2017, 1, 0, 0)
+# print(st)
+
+# create an HTML formatted calendar
+hc = calendar.HTMLCalendar(calendar.SUNDAY)
+# st = hc.formatmonth(2017, 1)
+# print(st)
+
+# loop over the days of a month
+# zeroes mean that the day of the week is in an overlapping month
+for i in c.itermonthdates(2017, 8):
+    print(i)
+
+# The 0 are the dates in that month does not belong to August
+for i in c.itermonthdays(2017, 8):
+    print(i)
+
+for name in calendar.month_name:
+    print(name)
+
+# Show as it with the current local machine
+for day in calendar.day_name:
+    print(day)
+
+# How to find out the first Friday of every months?
+for month in range(1, 13):
+	cal = calendar.monthcalendar(2020, m)
+	weekone = cal[0]
+	weektwo = cal[1]
+
+	# If the first Friday does not belongs to current month
+	if weekone[calendar.FRIDAY] != 0:
+		meetday = weekone[calendar.FRIDAY]
+	else:
+		meetday = weektwo[calendar.FRIDAY]
+
+	print("%10s %2d" % (calendar.month_name[m], meetday))
+
+'''
+Output:
+Team meetings will be on: 
+   January  5
+  February  2
+     March  2
+     April  6
+       May  4
+      June  1
+      July  6
+    August  3
+ September  7
+   October  5
+  November  2
+  December  7
+'''
+
+# Q: In Python, what is the correct code format for creating a work 
+# calendar with a month that starts on Monday, in June of 2019?
+
+import calendar
+
+cal = calendar.TextCalendar(calendar.Monday)
+myCal = cal.formatmonth(2019, 6, 0, 0)
+print(myCal)
+
+# Q: When using the timedelta object in Python, how do you use the 
+# max, min, and resolution attributes for timedelta?
+
+print(timedelta.max)
+print(timedelta.min)
+print(timedelta.resolution)   
+
+# Q: Print today's date
+
+from datetime import date
+from datetime import time
+from datetime import datetime
+
+def main():
+  today = date.today()
+  print ("Today's date is", today)      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
