@@ -38,3 +38,47 @@
 
 # Spark - computation plaform
 # Get familiar with the data lakes.
+
+# Q: Why do we prefer to work with data lakes?
+# It's a single source for all data.
+
+# Q: Data validation is a part of the data pipeline
+# YES!
+
+# Q: What is NOT a type of data?
+# API
+
+# Q: Where does data come from?
+# Database (????)
+
+# Q: Data scientists spend the majority of their time acquiring and cleaning data.
+# True
+
+# ---------------------------------------------
+# Chapter 02: Reading Data
+# ---------------------------------------------
+
+# CSV: 
+# Pro: Easy export/import from excel
+# Cons: No type information, No Standard
+
+# Process text file become a bottle neck
+# Parquet, Avro, ORC.
+
+# Find a library and load them into Pandas.
+# Use Apache Arrow
+
+# Use regular expression, please put the sample in source code.
+# Practice regular expression to parse log.
+# Import it into dataware house.
+
+
+
+
+
+
+
+
+
+
+
